@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stylish Font Generator ➜ #1 ꧁ Copy & Paste ꧂ Fancy Fonts & Game Names</title>
+  <meta name="description" content="Free Stylish Font Generator & BGMI / Free Fire name maker. Convert normal text into 100+ fancy, cursive, glitch & decorative fonts instantly. No API required!">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f5f3ff',
+              100: '#ede9fe',
+              500: '#8b5cf6',
+              600: '#7c3aed',
+              700: '#6d28d9',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(0,0,0,0.05);
+    }
+    .dark ::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.05);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #8b5cf6;
+      border-radius: 9999px;
+    }
+    .font-card {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .font-card:hover {
+      transform: translateY(-2px);
+    }
+    @keyframes pulse-copied {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+      100% { transform: scale(1); }
+    }
+    .copied-anim {
+      animation: pulse-copied 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col font-sans transition-colors duration-200">
+
+  <!-- Top Header / Navigation -->
+  <header class="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-violet-600 via-indigo-600 to-pink-500 flex items-center justify-center text-white font-black text-xl shadow-md shadow-violet-500/30">
+          SF
+        </div>
+        <div>
+          <a href="#" class="font-display font-extrabold text-xl bg-gradient-to-r from-violet-600 to-pink-500 bg-clip-text text-transparent">
+            StylishFonts<span class="text-xs ml-1 px-1.5 py-0.5 rounded-full bg-violet-100 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 font-sans font-semibold">PRO</span>
+          </a>
+          <p class="text-[10px] text-slate-500 dark:text-slate-400 font-medium">100% Client-Side • Instant Copy</p>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-2">
+        <button id="symbolDrawerBtn" class="flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold text-violet-700 dark:text-violet-300 bg-violet-50 dark:bg-violet-950/60 border border-violet-200 dark:border-violet-800/60 rounded-lg hover:bg-violet-100 dark:hover:bg-violet-900 transition">
+          <span>⚡ सिंबल्स (Symbols)</span>
+        </button>
+        <button id="themeToggle" aria-label="Toggle theme" class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+          <svg id="themeIconDark" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          <svg id="themeIconLight" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-6 md:py-8 space-y-6">
+    <!-- Hero Title -->
+    <div class="text-center max-w-2xl mx-auto space-y-2">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-black font-display tracking-tight text-slate-900 dark:text-white">
+        Stylish Font Generator <span class="text-violet-600 dark:text-violet-400">✨</span>
+      </h1>
+      <p class="text-slate-600 dark:text-slate-300 text-sm md:text-base font-normal">
+        बस अपना नाम या टेक्स्ट टाइप करें और <span class="font-semibold text-violet-600 dark:text-violet-400">Instagram, Free Fire, BGMI व WhatsApp</span> के लिए 100+ स्टाइलिश फोंट्स 1-क्लिक में कॉपी करें!
+      </p>
+    </div>
+
+    <!-- Main Live Input Box Card -->
+    <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-200/80 dark:border-slate-800 p-4 md:p-6 transition">
+      <div class="relative flex items-center">
+        <textarea id="textInput" rows="2" placeholder="यहाँ अपना नाम या टेक्स्ट लिखें (Type or paste text here)..."
+          class="w-full text-base sm:text-lg md:text-xl font-medium px-4 py-3 pr-24 rounded-xl border-2 border-violet-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/60 focus:bg-white dark:focus:bg-slate-800 focus:border-violet-600 dark:focus:border-violet-500 focus:outline-none transition resize-none"></textarea>
+        
+        <div class="absolute right-3 top-3 flex items-center space-x-1.5">
+          <button id="clearBtn" title="Clear text" class="p-2 text-slate-400 hover:text-rose-500 rounded-lg transition hover:bg-slate-100 dark:hover:bg-slate-700">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Character / Word count & Quick Actions -->
+      <div class="mt-3 flex flex-wrap items-center justify-between text-xs text-slate-500 dark:text-slate-400 gap-2">
+        <div class="flex items-center space-x-3">
+          <span>अक्षर: <b id="charCount" class="text-violet-600 dark:text-violet-400">0</b></span>
+          <span>शब्द: <b id="wordCount" class="text-violet-600 dark:text-violet-400">0</b></span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <button id="sampleBtn1" class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 hover:bg-violet-100 dark:hover:bg-violet-900/40 text-slate-700 dark:text-slate-300 transition">Gaming Name</button>
+          <button id="sampleBtn2" class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 hover:bg-violet-100 dark:hover:bg-violet-900/40 text-slate-700 dark:text-slate-300 transition">Insta Bio</button>
+          <button id="sampleBtn3" class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 hover:bg-violet-100 dark:hover:bg-violet-900/40 text-slate-700 dark:text-slate-300 transition">Love Quote</button>
+        </div>
+      </div>
+
+      <!-- Gaming & Decorative Badge Wrappers (Add Wings & Frames) -->
+      <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">⚡ क्विक विंग्स & फ्रेम्स (Custom Badge Wrapper):</span>
+        </div>
+        <div class="flex flex-wrap gap-1.5 overflow-x-auto pb-1" id="decorWrapperPills">
+          <!-- Dynamically generated or static quick wrappers -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center overflow-x-auto w-full pb-1 scrollbar-none space-x-1.5" id="categoryTabs">
+        <button data-cat="all" class="cat-pill active px-3.5 py-1.5 rounded-full text-xs font-bold bg-violet-600 text-white shadow-sm transition">All Styles (100+)</button>
+        <button data-cat="gaming" class="cat-pill px-3.5 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition">Free Fire & BGMI</button>
+        <button data-cat="instagram" class="cat-pill px-3.5 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition">Instagram Bio</button>
+        <button data-cat="fancy" class="cat-pill px-3.5 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition">Cursive & Fraktur</button>
+        <button data-cat="decorated" class="cat-pill px-3.5 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition">Love & Hearts</button>
+        <button data-cat="glitch" class="cat-pill px-3.5 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition">Zalgo / Glitch</button>
+      </div>
+
+      <!-- Quick Search input within styles -->
+      <div class="relative w-full sm:w-60 flex-shrink-0">
+        <input type="text" id="styleSearch" placeholder="फ़ॉन्ट स्टाइल सर्च करें..." class="w-full text-xs px-3 py-2 pl-8 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:outline-none focus:border-violet-500">
+        <svg class="w-4 h-4 absolute left-2.5 top-2.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      </div>
+    </div>
+
+    <!-- Font Cards Results Grid -->
+    <div id="resultsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+      <!-- Font cards will be injected by JavaScript -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="emptyState" class="hidden text-center py-12 space-y-3">
+      <div class="text-4xl">🔍</div>
+      <p class="text-slate-500 dark:text-slate-400 font-medium">कोई स्टाइल नहीं मिला। कृपया दूसरा कीवर्ड खोजें!</p>
+    </div>
+
+    <!-- SEO Content Section (Similar to stylish-fonts.in for rankings) -->
+    <section class="mt-16 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 md:p-8 space-y-8">
+      <div>
+        <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white mb-3">
+          ✨ Stylish Font Generator क्या है और यह कैसे काम करता है?
+        </h2>
+        <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm md:text-base">
+          Stylish Font Generator एक ऑनलाइन टूल है जो आपके सामान्य कीबोर्ड टेक्स्ट को तुरंत सुंदर, फैंसी और आकर्षक यूनिकोड सिंबल्स (Unicode Characters) में बदल देता है। यह कोई साधारण फॉन्ट फाइल (.ttf या .otf) डाउनलोड नहीं कराता, बल्कि इंटरनेशनल <strong>Unicode Standard</strong> का उपयोग करता है। इसलिए आप इन फोंट्स को सीधे कॉपी करके <strong>Instagram Bio, Free Fire, BGMI Clan, WhatsApp Status, Facebook</strong> या <strong>YouTube Comments</strong> में पेस्ट कर सकते हैं।
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
+          <div class="text-2xl mb-2">⚡ 100% Client-Side</div>
+          <h3 class="font-bold text-slate-900 dark:text-white text-base">बिना API & नो सर्वर लेग</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">यह टूल पूरी तरह आपके ब्राउज़र में चलता है। आपका कोई भी डेटा किसी सर्वर पर नहीं भेजा जाता और यह ऑफलाइन भी काम करता है।</p>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
+          <div class="text-2xl mb-2">🎮 Gaming Optimized</div>
+          <h3 class="font-bold text-slate-900 dark:text-white text-base">Free Fire & BGMI नेम्स</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">गेमर्स के लिए खास क्राउन (亗), स्नाइपर (︻デ═一), विंग्स (꧁༺) और बैड-बॉय एटीट्यूड सिंबल्स इन-बिल्ट हैं।</p>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/60">
+          <div class="text-2xl mb-2">📋 1-Click Copy</div>
+          <h3 class="font-bold text-slate-900 dark:text-white text-base">इंस्टेंट क्लिपबोर्ड कॉपी</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">किसी भी स्टाइल पर सिर्फ एक क्लिक करें और टेक्स्ट तुरंत क्लिपबोर्ड पर कॉपी हो जाता है।</p>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="space-y-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+        <h3 class="text-xl font-bold font-display text-slate-900 dark:text-white">❓ अक्सर पूछे जाने वाले सवाल (FAQs)</h3>
+        
+        <div class="space-y-2.5" id="faqAccordion">
+          <div class="faq-item border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden">
+            <button class="faq-btn w-full px-4 py-3 text-left font-semibold text-sm flex justify-between items-center bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 transition">
+              <span>Q1. क्या यह स्टाइलिश फॉन्ट जनरेटर पूरी तरह फ्री है?</span>
+              <span class="faq-icon text-lg">+</span>
+            </button>
+            <div class="faq-ans hidden px-4 py-3 text-xs md:text-sm text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-900">
+              हाँ, यह टूल 100% फ्री है। इसके लिए किसी रजिस्ट्रेशन, लॉगिन या सब्सक्रिप्शन की जरूरत नहीं है।
+            </div>
+          </div>
+
+          <div class="faq-item border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden">
+            <button class="faq-btn w-full px-4 py-3 text-left font-semibold text-sm flex justify-between items-center bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 transition">
+              <span>Q2. क्या ये फोंट्स Instagram और WhatsApp पर काम करेंगे?</span>
+              <span class="faq-icon text-lg">+</span>
+            </button>
+            <div class="faq-ans hidden px-4 py-3 text-xs md:text-sm text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-900">
+              बिल्कुल! क्योंकि ये टेक्स्ट इमेजेस नहीं हैं बल्कि स्टैंडर्ड यूनिकोड कैरेक्टर्स हैं, इसलिए ये Android, iPhone, PC और सभी सोशल ऐप्स पर सही दिखते हैं।
+            </div>
+          </div>
+
+          <div class="faq-item border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden">
+            <button class="faq-btn w-full px-4 py-3 text-left font-semibold text-sm flex justify-between items-center bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 transition">
+              <span>Q3. Free Fire या BGMI में मेरा नाम इनविजिबल या एरर तो नहीं दिखाएगा?</span>
+              <span class="faq-icon text-lg">+</span>
+            </button>
+            <div class="faq-ans hidden px-4 py-3 text-xs md:text-sm text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-900">
+              हमारी लाइब्रेरी में वही सिंबल्स और फोंट्स शामिल हैं जो गेम्स के इन-गेम रीनेम कार्ड द्वारा सपोर्ट किए जाते हैं।
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating Symbol Palette Modal / Drawer -->
+  <div id="symbolDrawerModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-lg w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+      <div class="p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+        <div>
+          <h3 class="font-bold text-base font-display">⚡ गेमिंग & कूल सिंबल लाइब्रेरी</h3>
+          <p class="text-xs text-slate-500">क्लिक करके सीधे अपने इनपुट में सिंबल जोड़ें</p>
+        </div>
+        <button id="closeSymbolDrawer" class="p-1.5 rounded-lg text-slate-400 hover:text-rose-500 hover:bg-slate-100 dark:hover:bg-slate-800">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Symbols Content -->
+      <div class="p-4 overflow-y-auto space-y-4" id="symbolsContainer">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 flex items-center space-x-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-4 py-2.5 rounded-xl shadow-2xl text-xs font-bold tracking-wide transform translate-y-16 opacity-0 transition duration-200 pointer-events-none">
+    <svg class="w-4 h-4 text-emerald-400 dark:text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    <span id="toastMsg">कॉपी हो गया! (Copied)</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-12 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-8 text-center text-xs text-slate-500 dark:text-slate-400">
+    <div class="max-w-6xl mx-auto px-4 space-y-2">
+      <p class="font-medium text-slate-700 dark:text-slate-300">© 2026 Stylish Font Generator • 100% Free & No API Required</p>
+      <p>Designed for Gamers, Instagram Creators & Content Writers</p>
+    </div>
+  </footer>
+
+  <script>
+    // Standard Unicode Mapping Tables (Pure JS without any API)
+    const NORMAL_CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+    const FONT_MAPS = {
+      bold: {
+        name: "Bold (मोटा टेक्स्ट)",
+        category: "instagram",
+        chars: "𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭𝟬𝟭𝟮𝟯𝟰𝟱𝟲𝟳𝟴𝟵"
+      },
+      italic: {
+        name: "Italic (तिरछा टेक्स्ट)",
+        category: "instagram",
+        chars: "𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡0123456789"
+      },
+      boldItalic: {
+        name: "Bold Italic (बोल्ड इटैलिक)",
+        category: "instagram",
+        chars: "𝙖𝙗𝙘𝙙𝙚𝙛𝙜𝙝𝙞𝙟𝙠𝙡𝙢𝙣𝙤𝙥𝙦𝙧𝙨𝙩𝙪𝙫𝙬𝙭𝙮𝙯𝘼𝘽𝘾𝘿𝙀𝙁𝙂𝙃𝙄𝙅𝙆𝙇𝙈𝙉𝙊𝙋𝙌𝙍𝙎𝙏𝙐𝙑𝙒𝙓𝙔𝙕0123456789"
+      },
+      scriptCursive: {
+        name: "Cursive Script (कर्सीव हैंडराइटिंग)",
+        category: "fancy",
+        chars: "𝒶𝒷𝒸𝒹ℯ𝒻ℊ𝒽𝒾𝒿𝓀𝓁𝓂𝓃ℴ𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏𝒜ℬ𝒞𝒟ℰℱ𝒢ℋℐ𝒥𝒦ℒℳ𝒩𝒪𝒫𝒬ℛ𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵0123456789"
+      },
+      boldScript: {
+        name: "Bold Cursive (बोल्ड कर्सीव)",
+        category: "fancy",
+        chars: "𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩0123456789"
+      },
+      gothicFraktur: {
+        name: "Gothic / Fraktur (गॉथिक एटीट्यूड)",
+        category: "fancy",
+        chars: "𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ0123456789"
+      },
+      boldGothic: {
+        name: "Bold Fraktur (डार्क गॉथिक)",
+        category: "fancy",
+        chars: "𝖆𝖇𝖈𝖉𝖊𝖋𝖌𝖍𝖎𝖏𝖐𝖑𝖒𝖓𝖔𝖕𝖖𝖗𝖘𝖙𝖚𝖛𝖜𝖝𝖞𝖟𝕬𝕭𝕮𝕯𝕰𝕱𝕲𝕳𝕴𝕵𝕶𝕷𝕸𝕹𝕺𝕻𝕼𝕽𝕾𝕿𝖀𝖁𝖂𝖃𝖄𝖅0123456789"
+      },
+      doubleStruck: {
+        name: "Double Struck / Blackboard (डबल लाइन)",
+        category: "instagram",
+        chars: "𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡"
+      },
+      monospace: {
+        name: "Monospace / Hacker (टाइपराइटर)",
+        category: "instagram",
+        chars: "𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉𝟶𝟷𝟸𝟹𝟺𝟻𝟼𝟽𝟾𝟿"
+      },
+      smallCaps: {
+        name: "Small Caps (मिनी कैपिटल्स)",
+        category: "instagram",
+        chars: "ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘǫʀꜱᴛᴜᴠᴡxʏᴢABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+      },
+      bubbleCircled: {
+        name: "Bubbles / Circled (सर्कल फॉन्ट)",
+        category: "instagram",
+        chars: "ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ⓪①②③④⑤⑥⑦⑧⑨"
+      },
+      darkBubble: {
+        name: "Black Bubble (डार्क सर्कल्स)",
+        category: "instagram",
+        chars: "🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩⓿❶❷❸❹❺❻❼❽❾"
+      },
+      squared: {
+        name: "Squared (स्क्वेयर बॉक्स)",
+        category: "instagram",
+        chars: "🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄟🅀🅁🅂🅃🅄🅅🅆🅇🅈🅉🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄟🅀🅁🅂🅃🅄🅅🅆🅇🅈🅉0123456789"
+      },
+      darkSquared: {
+        name: "Black Square (डार्क स्क्वेयर)",
+        category: "instagram",
+        chars: "🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉0123456789"
+      },
+      wideFull: {
+        name: "Vaporwave / Fullwidth (वाइड स्पेसिंग)",
+        category: "fancy",
+        chars: "ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ０１２３４５６７８９"
+      },
+      currencyAsian: {
+        name: "Asian / Pseudo Katakana (जापानी लुक)",
+        category: "fancy",
+        chars: "ﾑ乃૮ძﻉԲﻭɦٱﻝƙɭɱռѻҩ૨รՇપงฝאץຊﾑ乃૮ძﻉԲﻭɦٱﻝƙɭɱռѻҩ૨รՇપงฝאץຊ0123456789"
+      }
+    };
+
+    // Decorative Templates with Prefixes/Suffixes
+    const DECORATIVE_PRESETS = [
+      // Free Fire & BGMI
+      { name: "FF Clan King (क्राउन विंग्स)", cat: "gaming", prefix: "꧁☆☬亗 ", suffix: " 亗☬☆꧂", transform: "boldGothic" },
+      { name: "Sniper Legend (स्नाइपर राइफल)", cat: "gaming", prefix: "▄︻デ══━一💥 ", suffix: " 💥", transform: "bold" },
+      { name: "Devil Wings (एंजेल & डेविल)", cat: "gaming", prefix: "𓆩⚡𓆪 ", suffix: " 𓆩⚡𓆪", transform: "smallCaps" },
+      { name: "God Slayer (गॉड स्लेयर)", cat: "gaming", prefix: "╰──╮GͥOͣDͫ╭──╯ ", suffix: " ╰──╮GͥOͣDͫ╭──╯", transform: "bold" },
+      { name: "Dark Shadow (डार्क शैडो)", cat: "gaming", prefix: "⚔️『 ", suffix: " 』⚔️", transform: "boldGothic" },
+      { name: "VIP Crown (वीआईपी प्लेयर)", cat: "gaming", prefix: "👑★[ ", suffix: " ]★👑", transform: "bold" },
+      { name: "Thunder Boss (बिजली सिंबल)", cat: "gaming", prefix: "⚡亗 ", suffix: " 亗⚡", transform: "currencyAsian" },
+      { name: "Aesthetic Gamer (एस्थेटिक विंग्स)", cat: "gaming", prefix: "ᶦᶰᵈ᭄✨ ", suffix: " ༺✨༻", transform: "squared" },
+
+      // Love & Hearts
+      { name: "Heartbeat Pulse (धड़कन ईसीजी)", cat: "decorated", prefix: "💗ﮩ٨ـﮩﮩ ", suffix: " ﮩﮩـ٨ﮩ💗", transform: "scriptCursive" },
+      { name: "Sweet Couple (लव हार्ट्स)", cat: "decorated", prefix: "ღ(¯`◕‿◕´¯)ღ ", suffix: " ღ(¯`◕‿◕´¯)ღ", transform: "boldItalic" },
+      { name: "Pink Princess (पिंक लव)", cat: "decorated", prefix: "🌸♡ ", suffix: " ♡🌸", transform: "scriptCursive" },
+      { name: "Teddy Kiss (प्यारा स्माइली)", cat: "decorated", prefix: "( ͡°❥ ͡°)💖 ", suffix: " 💖( ͡°❥ ͡°)", transform: "bold" },
+      { name: "Double Heart Frame (हार्ट बॉर्डर)", cat: "decorated", prefix: "•┈••✦ ❤ ", suffix: " ❤ ✦••┈•", transform: "boldGothic" },
+
+      // Instagram Aesthetic & Cool
+      { name: "Sparkle Stars (चमकदार सितारे)", cat: "instagram", prefix: "✧･ﾟ: *✧ ", suffix: " ✧*:･ﾟ✧", transform: "italic" },
+      { name: "Japanese Brackets (जापानी ब्रैकेट्स)", cat: "fancy", prefix: "【 ", suffix: " 】", transform: "wideFull" },
+      { name: "Floral Ribbon (फ्लोरल रिबन)", cat: "decorated", prefix: "꧁𓊈🌸 ", suffix: " 🌸𓊉꧂", transform: "scriptCursive" },
+      { name: "Diamond Sparkle (हीरा सिंबल)", cat: "instagram", prefix: "💎✨ ", suffix: " ✨💎", transform: "doubleStruck" },
+      { name: "Butterfly Aesthetic (तितली फ्रेम)", cat: "instagram", prefix: "🦋✧ ", suffix: " ✧🦋", transform: "scriptCursive" }
+    ];
+
+    // Quick Wrapper Badges for Top Bar
+    const QUICK_WRAPPERS = [
+      { label: "None", l: "", r: "" },
+      { label: "꧁☆☬ ... ☬☆꧂", l: "꧁☆☬", r: "☬☆꧂" },
+      { label: "亗 ... 亗", l: "亗 ", r: " 亗" },
+      { label: "𓆩♡𓆪 ... 𓆩♡𓆪", l: "𓆩♡𓆪 ", r: " 𓆩♡𓆪" },
+      { label: "⚡ ... ⚡", l: "⚡ ", r: " ⚡" },
+      { label: "ﮩ٨ـﮩﮩ ... ﮩﮩـ٨ﮩ", l: "ﮩ٨ـﮩﮩ ", r: " ﮩﮩـ٨ﮩ" },
+      { label: "▄︻デ ... 一", l: "▄︻デ══━一 ", r: "" },
+      { label: "【 ... 】", l: "【 ", r: " 】" }
+    ];
+
+    // Convert text using simple character mapping
+    function mapString(str, mapStringChars) {
+      if (!str) return "";
+      let res = "";
+      const mapArray = Array.from(mapStringChars);
+      for (let ch of str) {
+        const idx = NORMAL_CHARS.indexOf(ch);
+        if (idx !== -1 && mapArray[idx]) {
+          res += mapArray[idx];
+        } else {
+          res += ch;
+        }
+      }
+      return res;
+    }
+
+    // Upside down text mapping
+    const FLIP_MAP = {
+      'a':'ɐ','b':'q','c':'ɔ','d':'p','e':'ǝ','f':'ɟ','g':'ƃ','h':'ɥ','i':'ᴉ','j':'ɾ','k':'ʞ','l':'ן','m':'ɯ',
+      'n':'u','o':'o','p':'d','q':'b','r':'ɹ','s':'s','t':'ʇ','u':'n','v':'ʌ','w':'ʍ','x':'x','y':'ʎ','z':'z',
+      'A':'∀','B':'𐐒','C':'Ɔ','D':'ᗡ','E':'Ǝ','F':'Ⅎ','G':'⅁','H':'H','I':'I','J':'ſ','K':'ʞ','L':'˥','M':'W',
+      'N':'N','O':'O','P':'Ԁ','Q':'Ò','R':'ᴚ','S':'S','T':'⊥','U':'∩','V':'Λ','W':'M','X':'X','Y':'⅄','Z':'Z',
+      '0':'0','1':'Ɩ','2':'ᄅ','3':'Ɛ','4':'ㄣ','5':'ϛ','6':'9','7':'ㄥ','8':'8','9':'6','?':'¿','!':'¡','.':'˙',',':'\''
+    };
+    function flipText(str) {
+      return str.split('').reverse().map(ch => FLIP_MAP[ch] || ch).join('');
+    }
+
+    // Combining Diacritics (Underline, Strikethrough, Slashes)
+    function applyCombining(str, codePoint) {
+      return str.split('').map(c => c + String.fromCodePoint(codePoint)).join('');
+    }
+
+    // Zalgo / Glitch Generator
+    const ZALGO_UP = ['̍','̎','̄','̅','̿','̑','̆','̐','͒','͗','͑','̇','̈','̊','͂','̓','̈','͊','͋','͌','̃','̂','̌','͐','̀','́','̋','̏','̒','̓'];
+    const ZALGO_MID = ['̕','̛','̀','́','͘','̡','̢','̧','̨','̴','̵','̶','͜','͝','͞','͟','͠','͢','̸','̷','͡'];
+    const ZALGO_DOWN = ['̖','̗','̘','̙','̜','̝','̞','̟','̠','̤','̥','̦','̩','̪','̫','̬','̭','̮','̯','̰','̱','̲','̳','̹','̺','̻','̼','ͅ','͇','͈','͉','͍','͎','͓','͔','͕','͖','͙','͚','̣'];
+
+    function zalgoText(str) {
+      let result = '';
+      for (let char of str) {
+        result += char;
+        if (char === ' ') continue;
+        for (let i = 0; i < 2; i++) result += ZALGO_UP[Math.floor(Math.random() * ZALGO_UP.length)];
+        result += ZALGO_MID[Math.floor(Math.random() * ZALGO_MID.length)];
+        for (let i = 0; i < 2; i++) result += ZALGO_DOWN[Math.floor(Math.random() * ZALGO_DOWN.length)];
+      }
+      return result;
+    }
+
+    // State
+    let currentInput = "Your Name";
+    let activeCategory = "all";
+    let activeWrapper = { l: "", r: "" };
+    let searchQuery = "";
+
+    // DOM Elements
+    const textInput = document.getElementById("textInput");
+    const clearBtn = document.getElementById("clearBtn");
+    const charCountEl = document.getElementById("charCount");
+    const wordCountEl = document.getElementById("wordCount");
+    const resultsGrid = document.getElementById("resultsGrid");
+    const emptyState = document.getElementById("emptyState");
+    const categoryTabs = document.getElementById("categoryTabs");
+    const styleSearch = document.getElementById("styleSearch");
+    const decorWrapperPills = document.getElementById("decorWrapperPills");
+    const toast = document.getElementById("toast");
+    const toastMsg = document.getElementById("toastMsg");
+
+    // Init Quick Wrapper Pills
+    QUICK_WRAPPERS.forEach((w, idx) => {
+      const btn = document.createElement("button");
+      btn.className = `px-2.5 py-1 text-xs rounded-lg font-medium border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:border-violet-500 transition whitespace-nowrap ${idx === 0 ? 'bg-violet-100 dark:bg-violet-900/50 border-violet-400 text-violet-700 dark:text-violet-300' : 'text-slate-600 dark:text-slate-300'}`;
+      btn.innerText = w.label;
+      btn.addEventListener("click", () => {
+        activeWrapper = w;
+        document.querySelectorAll("#decorWrapperPills button").forEach(b => {
+          b.className = "px-2.5 py-1 text-xs rounded-lg font-medium border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:border-violet-500 transition whitespace-nowrap";
+        });
+        btn.className = "px-2.5 py-1 text-xs rounded-lg font-medium border border-violet-500 bg-violet-100 dark:bg-violet-900/50 text-violet-700 dark:text-violet-300 transition whitespace-nowrap";
+        renderAllStyles();
+      });
+      decorWrapperPills.appendChild(btn);
+    });
+
+    // Symbol Palette Data
+    const SYMBOL_CATEGORIES = [
+      {
+        title: "🔥 Gaming & Clan Badges (BGMI / Free Fire)",
+        symbols: ["亗", "⚡", "꧁", "꧂", "☬", "༺", "༻", "︻デ═一", "▄︻デ══━一", "⚔️", "👑", "亗", "࿐", "᭄", "★", "彡", "〆", "𓆩", "𓆪", "☠️", "🎯", "✦", "✪"]
+      },
+      {
+        title: "❤️ Hearts & Love Aesthetic",
+        symbols: ["♡", "💖", "💗", "💓", "💞", "ﮩ٨ـﮩﮩ", "ﮩﮩـ٨ﮩ", "ღ", "❥", "❦", "❧", "🌸", "💐", "🌺", "💍", "💋"]
+      },
+      {
+        title: "✨ Stars, Brackets & Arrows",
+        symbols: ["★", "☆", "✦", "✧", "✪", "✫", "✬", "✭", "✮", "✯", "【", "】", "『", "』", "⟦", "⟧", "《", "》", "➜", "➤", "➥", "►", "◄", "◈", "◇"]
+      }
+    ];
+
+    const symbolsContainer = document.getElementById("symbolsContainer");
+    SYMBOL_CATEGORIES.forEach(cat => {
+      const div = document.createElement("div");
+      div.className = "space-y-1.5";
+      div.innerHTML = `<h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider">${cat.title}</h4>`;
+      
+      const grid = document.createElement("div");
+      grid.className = "flex flex-wrap gap-1.5";
+      
+      cat.symbols.forEach(sym => {
+        const btn = document.createElement("button");
+        btn.className = "px-2.5 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-violet-100 dark:hover:bg-violet-900/50 rounded-lg text-sm font-semibold transition text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700";
+        btn.innerText = sym;
+        btn.addEventListener("click", () => {
+          insertAtCursor(sym);
+          showToast(`सिंबल जोड़ा गया: ${sym}`);
+        });
+        grid.appendChild(btn);
+      });
+
+      div.appendChild(grid);
+      symbolsContainer.appendChild(div);
+    });
+
+    function insertAtCursor(textToInsert) {
+      const start = textInput.selectionStart;
+      const end = textInput.selectionEnd;
+      const val = textInput.value;
+      textInput.value = val.substring(0, start) + textToInsert + val.substring(end);
+      textInput.focus();
+      textInput.selectionStart = textInput.selectionEnd = start + textToInsert.length;
+      handleInputChange();
+    }
+
+    function generateStylesList(rawText) {
+      const baseText = rawText || "Your Name";
+      const wrapped = (txt) => `${activeWrapper.l}${txt}${activeWrapper.r}`;
+      
+      const list = [];
+
+      // 1. Basic Standard Font Maps
+      for (let key in FONT_MAPS) {
+        const item = FONT_MAPS[key];
+        list.push({
+          title: item.name,
+          category: item.category,
+          output: wrapped(mapString(baseText, item.chars))
+        });
+      }
+
+      // 2. Special Dynamic Text Converters
+      list.push({
+        title: "Upside Down / Flip (उलटा टेक्स्ट)",
+        category: "fancy",
+        output: wrapped(flipText(baseText))
+      });
+
+      list.push({
+        title: "Underline (अंडरलाइन टेक्स्ट)",
+        category: "instagram",
+        output: wrapped(applyCombining(baseText, 0x0332))
+      });
+
+      list.push({
+        title: "Strikethrough (स्ट्राइकथ्रू टेक्स्ट)",
+        category: "instagram",
+        output: wrapped(applyCombining(baseText, 0x0336))
+      });
+
+      list.push({
+        title: "Cross Overlay (क्रॉस मार्क)",
+        category: "fancy",
+        output: wrapped(applyCombining(baseText, 0x0337))
+      });
+
+      list.push({
+        title: "Zalgo / Creepy Glitch (ग्लिच & भूतिया)",
+        category: "glitch",
+        output: wrapped(zalgoText(baseText))
+      });
+
+      // 3. Decorated & Gaming Presets
+      DECORATIVE_PRESETS.forEach(preset => {
+        let transformedText = baseText;
+        if (FONT_MAPS[preset.transform]) {
+          transformedText = mapString(baseText, FONT_MAPS[preset.transform].chars);
+        }
+        list.push({
+          title: preset.name,
+          category: preset.cat,
+          output: `${activeWrapper.l}${preset.prefix}${transformedText}${preset.suffix}${activeWrapper.r}`
+        });
+      });
+
+      return list;
+    }
+
+    function renderAllStyles() {
+      const allStyles = generateStylesList(currentInput);
+      resultsGrid.innerHTML = "";
+
+      // Filter by category & search
+      const filtered = allStyles.filter(item => {
+        const matchesCat = (activeCategory === "all") || (item.category === activeCategory);
+        const matchesSearch = !searchQuery || item.title.toLowerCase().includes(searchQuery.toLowerCase()) || item.output.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCat && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        emptyState.classList.remove("hidden");
+      } else {
+        emptyState.classList.add("hidden");
+        filtered.forEach((item, index) => {
+          const card = document.createElement("div");
+          card.className = "font-card bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 flex flex-col justify-between shadow-sm hover:border-violet-500/80 dark:hover:border-violet-500 transition group cursor-pointer";
+          
+          card.innerHTML = `
+            <div class="flex items-center justify-between text-xs text-slate-400 dark:text-slate-500 mb-2">
+              <span class="font-medium truncate pr-2">${item.title}</span>
+              <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">${item.category}</span>
+            </div>
+            <div class="my-2 overflow-x-auto py-1 scrollbar-none">
+              <p class="font-output text-lg sm:text-xl text-slate-900 dark:text-white font-normal break-words select-all">${escapeHtml(item.output)}</p>
+            </div>
+            <div class="mt-3 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+              <span class="text-[11px] text-slate-400 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition flex items-center space-x-1">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                <span>क्लिक करके कॉपी करें</span>
+              </span>
+              <button class="copy-btn px-3 py-1 bg-violet-50 dark:bg-violet-950/60 hover:bg-violet-600 hover:text-white text-violet-700 dark:text-violet-300 font-semibold text-xs rounded-lg transition border border-violet-200 dark:border-violet-800/80 flex items-center space-x-1">
+                <span>Copy</span>
+              </button>
+            </div>
+          `;
+
+          // Click on card copies text
+          card.addEventListener("click", () => {
+            copyTextToClipboard(item.output, card);
+          });
+
+          resultsGrid.appendChild(card);
+        });
+      }
+    }
+
+    function escapeHtml(unsafe) {
+      return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function copyTextToClipboard(text, cardEl) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          triggerCopyFeedback(cardEl);
+        }).catch(() => {
+          fallbackCopy(text, cardEl);
+        });
+      } else {
+        fallbackCopy(text, cardEl);
+      }
+    }
+
+    function fallbackCopy(text, cardEl) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try {
+        document.execCommand('copy');
+        triggerCopyFeedback(cardEl);
+      } catch (err) {
+        showToast("कॉपी नहीं हो सका, कृपया मैन्युअल कॉपी करें");
+      }
+      document.body.removeChild(ta);
+    }
+
+    function triggerCopyFeedback(cardEl) {
+      if (cardEl) {
+        cardEl.classList.add("copied-anim");
+        const btn = cardEl.querySelector(".copy-btn");
+        if (btn) {
+          const original = btn.innerHTML;
+          btn.innerHTML = `<span>✓ Copied!</span>`;
+          btn.classList.add("bg-emerald-600", "text-white");
+          setTimeout(() => {
+            btn.innerHTML = original;
+            btn.classList.remove("bg-emerald-600", "text-white");
+            cardEl.classList.remove("copied-anim");
+          }, 1200);
+        }
+      }
+      showToast("क्लिपबोर्ड पर कॉपी हो गया! 🎉");
+    }
+
+    let toastTimer;
+    function showToast(message) {
+      toastMsg.innerText = message;
+      toast.classList.remove("translate-y-16", "opacity-0");
+      toast.classList.add("translate-y-0", "opacity-100");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.add("translate-y-16", "opacity-0");
+        toast.classList.remove("translate-y-0", "opacity-100");
+      }, 2000);
+    }
+
+    function handleInputChange() {
+      currentInput = textInput.value;
+      charCountEl.innerText = currentInput.length;
+      wordCountEl.innerText = currentInput.trim() ? currentInput.trim().split(/\s+/).length : 0;
+      renderAllStyles();
+    }
+
+    textInput.addEventListener("input", handleInputChange);
+    
+    clearBtn.addEventListener("click", () => {
+      textInput.value = "";
+      handleInputChange();
+      textInput.focus();
+    });
+
+    // Preset Samples
+    document.getElementById("sampleBtn1").addEventListener("click", () => {
+      textInput.value = "RASTAR GAMER";
+      handleInputChange();
+    });
+    document.getElementById("sampleBtn2").addEventListener("click", () => {
+      textInput.value = "Dreamer & Creator";
+      handleInputChange();
+    });
+    document.getElementById("sampleBtn3").addEventListener("click", () => {
+      textInput.value = "Love You Forever";
+      handleInputChange();
+    });
+
+    // Category Tabs Switching
+    categoryTabs.addEventListener("click", (e) => {
+      const btn = e.target.closest(".cat-pill");
+      if (!btn) return;
+      document.querySelectorAll(".cat-pill").forEach(p => {
+        p.className = "cat-pill px-3.5 py-1.5 rounded-full text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition";
+      });
+      btn.className = "cat-pill active px-3.5 py-1.5 rounded-full text-xs font-bold bg-violet-600 text-white shadow-sm transition";
+      activeCategory = btn.getAttribute("data-cat");
+      renderAllStyles();
+    });
+
+    // Search filter
+    styleSearch.addEventListener("input", (e) => {
+      searchQuery = e.target.value;
+      renderAllStyles();
+    });
+
+    // Symbol Modal Drawer open/close
+    const symbolDrawerModal = document.getElementById("symbolDrawerModal");
+    document.getElementById("symbolDrawerBtn").addEventListener("click", () => {
+      symbolDrawerModal.classList.remove("hidden");
+      symbolDrawerModal.classList.add("flex");
+    });
+    document.getElementById("closeSymbolDrawer").addEventListener("click", () => {
+      symbolDrawerModal.classList.add("hidden");
+      symbolDrawerModal.classList.remove("flex");
+    });
+    symbolDrawerModal.addEventListener("click", (e) => {
+      if (e.target === symbolDrawerModal) {
+        symbolDrawerModal.classList.add("hidden");
+        symbolDrawerModal.classList.remove("flex");
+      }
+    });
+
+    // FAQ Accordion Toggle
+    document.querySelectorAll(".faq-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const item = btn.parentElement;
+        const ans = item.querySelector(".faq-ans");
+        const icon = btn.querySelector(".faq-icon");
+        const isClosed = ans.classList.contains("hidden");
+        
+        // Close others
+        document.querySelectorAll(".faq-ans").forEach(a => a.classList.add("hidden"));
+        document.querySelectorAll(".faq-icon").forEach(i => i.innerText = "+");
+
+        if (isClosed) {
+          ans.classList.remove("hidden");
+          icon.innerText = "−";
+        }
+      });
+    });
+
+    // Theme Switcher (Dark / Light)
+    const themeToggle = document.getElementById("themeToggle");
+    const themeIconLight = document.getElementById("themeIconLight");
+    const themeIconDark = document.getElementById("themeIconDark");
+
+    function initTheme() {
+      const isDark = localStorage.getItem("theme") === "dark" || 
+        (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+      if (isDark) {
+        document.documentElement.classList.add("dark");
+        themeIconDark.classList.remove("hidden");
+        themeIconLight.classList.add("hidden");
+      } else {
+        document.documentElement.classList.remove("dark");
+        themeIconDark.classList.add("hidden");
+        themeIconLight.classList.remove("hidden");
+      }
+    }
+    
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.toggle("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+      themeIconDark.classList.toggle("hidden", !isDark);
+      themeIconLight.classList.toggle("hidden", isDark);
+    });
+
+    // Initial Start
+    window.onload = function() {
+      initTheme();
+      textInput.value = "Your Name";
+      handleInputChange();
+    };
+  </script>
+</body>
+</html>
